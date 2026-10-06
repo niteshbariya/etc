@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="gu" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D.El.Ed. દ્વિતીય વર્ષ - કોર્સ 1 (બ) : સ્વની સમજ અને શૈક્ષણિક દૃષ્ટિબિંદુનો વિકાસ</title>
+<style>
+:root{
+  --bg:#eef3fb; --card:#ffffff; --text:#1f2937; --muted:#64748b; --border:#dbe4f0;
+  --primary:#4f46e5; --primary2:#7c3aed; --accent:#0ea5e9;
+  --ok:#16a34a; --okbg:#ecfdf3; --okbd:#86efac;
+  --bad:#dc2626; --badbg:#fef2f2; --badbd:#fca5a5;
+  --warn:#f59e0b; --warnbg:#fffbeb; --warnbd:#fcd34d;
+  --opt:#f1f5f9; --opthover:#e2e8f0; --optsel:#e0e7ff; --shadow:0 10px 30px rgba(79,70,229,.12);
+}
+[data-theme="dark"]{
+  --bg:#0b1020; --card:#151b30; --text:#e5e9f5; --muted:#94a3b8; --border:#2a3350;
+  --primary:#818cf8; --primary2:#a78bfa; --accent:#38bdf8;
+  --ok:#4ade80; --okbg:#10291c; --okbd:#1f6b3d;
+  --bad:#f87171; --badbg:#2f1517; --badbd:#7f2a2e;
+  --warn:#fbbf24; --warnbg:#2c2410; --warnbd:#7a5c10;
+  --opt:#1e2640; --opthover:#28325a; --optsel:#2b3470; --shadow:0 10px 30px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Noto Sans Gujarati','Shruti','Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--text);transition:background .25s,color .25s;line-height:1.55}
+.topbar{display:flex;justify-content:space-between;align-items:center;max-width:960px;margin:0 auto;padding:12px 15px 0}
+.topbar .brand{font-weight:700;color:var(--primary);font-size:14px}
+.tools{display:flex;gap:6px}
+.tool-btn{width:auto;margin:0;padding:7px 12px;font-size:14px;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:20px;cursor:pointer}
+.wrap{max-width:960px;margin:0 auto;padding:12px 15px 40px}
+.card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:24px;border:1px solid var(--border)}
+.hero{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;border-radius:16px;padding:24px 20px;text-align:center;margin-bottom:18px}
+.hero h1{margin:0 0 6px;font-size:22px;color:#fff}
+.hero p{margin:4px 0;opacity:.92;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.chip{background:rgba(255,255,255,.2);padding:4px 12px;border-radius:20px;font-size:13px}
+.form-group{margin-bottom:15px}
+label.lbl{display:block;font-weight:600;margin-bottom:6px}
+input[type=text],input[type=tel],input[type=email]{width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;font-size:15px;background:var(--card);color:var(--text);font-family:inherit}
+input:focus{outline:2px solid var(--primary);border-color:transparent}
+button{font-family:inherit}
+.btn{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;border:none;padding:13px 20px;font-size:16px;font-weight:600;border-radius:10px;cursor:pointer;width:100%;margin-top:8px;transition:transform .1s,opacity .2s}
+.btn:hover{opacity:.92}.btn:active{transform:scale(.98)}
+.btn:disabled{background:#94a3b8;cursor:not-allowed}
+.btn.green{background:linear-gradient(135deg,#16a34a,#22c55e)}
+.btn.gray{background:#64748b}
+.btn.amber{background:linear-gradient(135deg,#f59e0b,#f97316)}
+.otp-box{background:var(--optsel);border:1px dashed var(--primary);padding:15px;border-radius:10px;margin-top:15px;display:none}
+.resume-box{background:var(--warnbg);border:1px solid var(--warnbd);padding:14px;border-radius:10px;margin-bottom:16px;display:none}
+.rules{background:var(--opt);border-radius:10px;padding:12px 16px;font-size:14px;margin:14px 0}
+.rules ul{margin:6px 0 0;padding-left:20px}
+
+/* quiz */
+.qhead{position:sticky;top:0;z-index:5;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:10px 14px;margin-bottom:12px;box-shadow:var(--shadow)}
+.qhead-row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.timer{font-size:20px;font-weight:700;color:var(--primary);font-variant-numeric:tabular-nums}
+.timer.low{color:var(--bad);animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.5}}
+.pbar{height:7px;background:var(--opt);border-radius:6px;margin-top:8px;overflow:hidden}
+.pbar>div{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--primary2));transition:width .3s}
+.layout{display:grid;grid-template-columns:1fr 250px;gap:14px}
+@media(max-width:780px){.layout{grid-template-columns:1fr}.palette-card{order:2}}
+.unit-badge{display:inline-block;background:var(--optsel);color:var(--primary);padding:5px 12px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:10px}
+.qtext{font-size:18px;font-weight:600;line-height:1.6;white-space:pre-line;margin:4px 0 16px}
+.option-label{display:flex;gap:10px;align-items:flex-start;background:var(--opt);padding:13px 14px;margin-bottom:9px;border-radius:12px;cursor:pointer;border:2px solid transparent;transition:all .15s}
+.option-label:hover{background:var(--opthover)}
+.option-label.sel{background:var(--optsel);border-color:var(--primary)}
+.option-label input{margin-top:5px;accent-color:var(--primary)}
+.optk{display:inline-flex;min-width:26px;height:26px;border-radius:50%;background:var(--primary);color:#fff;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:none}
+.actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.actions .btn{flex:1;min-width:120px;margin-top:0;padding:11px 10px;font-size:15px}
+.flag-on{background:linear-gradient(135deg,#f59e0b,#f97316)!important;color:#fff}
+.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-height:340px;overflow:auto;padding:2px}
+@media(max-width:780px){.palette{grid-template-columns:repeat(10,1fr);max-height:none}}
+.pb{width:100%;margin:0;padding:7px 0;font-size:12px;font-weight:600;border-radius:8px;border:2px solid transparent;background:var(--opt);color:var(--muted);cursor:pointer}
+.pb.ans{background:var(--ok);color:#fff}
+.pb.flag{background:var(--warn);color:#fff}
+.pb.cur{border-color:var(--primary);box-shadow:0 0 0 2px var(--primary)}
+.legend{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;margin-top:10px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px;text-align:center;font-size:12px}
+.stat3 div{padding:6px;border-radius:8px;font-weight:600}
+
+/* modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:15px}
+.modal{background:var(--card);border-radius:16px;padding:22px;max-width:420px;width:100%;border:1px solid var(--border)}
+.modal h3{margin-top:0}
+.modal .row{display:flex;gap:8px}
+.modal .row .btn{margin-top:10px}
+
+/* result */
+.score-hero{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;border-radius:16px;padding:22px;text-align:center}
+.ring{width:130px;height:130px;border-radius:50%;margin:10px auto;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;background:conic-gradient(#fff var(--p),rgba(255,255,255,.25) 0)}
+.ring span{background:var(--primary2);width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.grade{display:inline-block;background:rgba(255,255,255,.22);padding:5px 16px;border-radius:20px;font-weight:700;margin-top:6px}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.kv div{background:var(--opt);padding:10px;border-radius:10px;font-size:14px}
+.kv b{display:block;color:var(--primary)}
+.ubar{margin:10px 0}
+.ubar .t{display:flex;justify-content:space-between;font-size:14px;font-weight:600}
+.ubar .b{height:12px;background:var(--opt);border-radius:8px;overflow:hidden;margin-top:4px}
+.ubar .b div{height:100%;border-radius:8px}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
+.filters button{width:auto;margin:0;padding:8px 14px;font-size:14px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer}
+.filters button.on{background:var(--primary);color:#fff;border-color:var(--primary)}
+.review-item{padding:15px;border-radius:12px;margin-bottom:12px;border:1px solid var(--border);border-left-width:6px}
+.is-correct{background:var(--okbg);border-color:var(--okbd)}
+.is-wrong{background:var(--badbg);border-color:var(--badbd)}
+.is-skip{background:var(--warnbg);border-color:var(--warnbd)}
+.review-item .qq{font-weight:600;white-space:pre-line;margin:0 0 8px}
+.exp-box{background:var(--card);padding:10px;border-radius:8px;margin-top:8px;font-size:14px;border:1px solid var(--border)}
+.muted{color:var(--muted)}
+.hide{display:none!important}
+@media print{
+  body{background:#fff;color:#000}
+  .topbar,.filters,.noprint,.btn{display:none!important}
+  .card{box-shadow:none;border:none}
+  .review-item{break-inside:avoid}
+  [data-theme="dark"]{--card:#fff;--text:#000}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar noprint">
+  <span class="brand">📘 D.El.Ed. TET/TAT પ્રશ્નબૅંક</span>
+  <div class="tools">
+    <button class="tool-btn" onclick="fontSize(-1)" title="નાના અક્ષર">A-</button>
+    <button class="tool-btn" onclick="fontSize(1)" title="મોટા અક્ષર">A+</button>
+    <button class="tool-btn" id="themeBtn" onclick="toggleTheme()">🌙 ડાર્ક</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ૧. પ્રવેશ -->
+<div id="loginScreen">
+  <div class="hero">
+    <h1>D.El.Ed. દ્વિતીય વર્ષ - કોર્સ 1 (બ)</h1>
+    <p>સ્વની સમજ અને શૈક્ષણિક દૃષ્ટિબિંદુનો વિકાસ</p>
+    <div class="chips">
+      <span class="chip">📝 ૧૦૦ HOTS MCQ</span>
+      <span class="chip">⏱️ ૧૦૦ મિનિટ</span>
+      <span class="chip">🚩 ફ્લેગ સુવિધા</span>
+      <span class="chip">📧 PDF પરિણામ ઇમેઇલ પર</span>
+    </div>
+  </div>
+  <div class="card">
+    <div id="resumeBox" class="resume-box">
+      <b>⏳ અધૂરી કસોટી મળી છે</b>
+      <p id="resumeInfo" style="margin:6px 0"></p>
+      <button class="btn amber" onclick="resumeQuiz()">▶ કસોટી ચાલુ રાખો</button>
+      <button class="btn gray" onclick="discardSaved()">🗑 નવી કસોટી શરૂ કરો</button>
+    </div>
+    <div class="form-group"><label class="lbl" for="name">પૂરું નામ:</label>
+      <input type="text" id="name" placeholder="તમારું પૂરું નામ લખો"></div>
+    <div class="form-group"><label class="lbl" for="phone">મોબાઇલ નંબર:</label>
+      <input type="tel" id="phone" inputmode="numeric" maxlength="10" placeholder="૧૦ અંકનો સાચો મોબાઇલ નંબર"></div>
+    <div class="form-group"><label class="lbl" for="email">ઇમેઇલ આઇડી:</label>
+      <input type="email" id="email" placeholder="તમારું સાચું ઈમેઈલ આઈડી લખો"></div>
+    <div class="rules">
+      <b>📌 સૂચનાઓ</b>
+      <ul>
+        <li>દરેક પ્રશ્ન ૧ ગુણનો છે. ખોટા જવાબ માટે ગુણ કપાતા નથી.</li>
+        <li>જવાબ પછી આપવો હોય તો પ્રશ્નને <b>🚩 ફ્લેગ</b> કરો; જમણી/નીચેની પેલેટમાંથી સીધા કોઈ પણ પ્રશ્ને જઈ શકાય.</li>
+        <li>સાચા જવાબ અને સમજૂતી કસોટી પૂરી થયા પછી જ દેખાશે.</li>
+        <li>સમય પૂરો થતાં કસોટી આપોઆપ સબમિટ થશે. પેજ રિફ્રેશ થાય તો પ્રગતિ સચવાયેલી રહેશે.</li>
+      </ul>
+    </div>
+    <button class="btn" id="getOtpBtn" onclick="requestOTP()">OTP મેળવો</button>
+    <div id="otpContainer" class="otp-box">
+      <p style="margin:0 0 10px;font-weight:600;color:var(--primary)">તમારા તેમજ એડમિનના ઈમેઈલ પર ૪ અંકનો OTP મોકલવામાં આવ્યો છે.</p>
+      <input type="text" id="otpInput" inputmode="numeric" placeholder="૪ અંકનો OTP દાખલ કરો" maxlength="4">
+      <button class="btn green" id="verifyBtn" onclick="verifyAndStart()">OTP ચકાસો અને કસોટી શરૂ કરો</button>
+    </div>
+  </div>
+</div>
+
+<!-- ૨. કસોટી -->
+<div id="quizScreen" class="hide">
+  <div class="qhead">
+    <div class="qhead-row">
+      <b id="qProgress">પ્રશ્ન ૧ / ૧૦૦</b>
+      <span class="timer" id="timerDisplay">૦૦:૦૦</span>
+    </div>
+    <div class="pbar"><div id="pfill"></div></div>
+  </div>
+  <div class="layout">
+    <div class="card">
+      <div id="unitBadge" class="unit-badge"></div>
+      <div id="questionText" class="qtext"></div>
+      <div id="optionsContainer"></div>
+      <div class="actions">
+        <button class="btn amber" id="flagBtn" onclick="toggleFlag()">🚩 ફ્લેગ કરો</button>
+        <button class="btn gray" onclick="clearAnswer()">✖ જવાબ સાફ</button>
+      </div>
+      <div class="actions">
+        <button class="btn gray" id="prevBtn" onclick="go(-1)">◀ પાછળ</button>
+        <button class="btn" id="nextBtn" onclick="go(1)">આગળ ▶</button>
+      </div>
+      <p class="muted" style="font-size:12px;margin:12px 0 0">⌨️ કીબોર્ડ: 1-4 = વિકલ્પ, ← → = પ્રશ્ન બદલો, F = ફ્લેગ</p>
+    </div>
+    <div class="card palette-card" style="padding:14px;height:fit-content">
+      <div class="stat3">
+        <div id="stA" style="background:var(--okbg);color:var(--ok)"></div>
+        <div id="stF" style="background:var(--warnbg);color:var(--warn)"></div>
+        <div id="stU" style="background:var(--opt);color:var(--muted)"></div>
+      </div>
+      <div class="palette" id="palette"></div>
+      <div class="legend">
+        <span><i style="background:var(--ok)"></i>જવાબ આપ્યો</span>
+        <span><i style="background:var(--warn)"></i>ફ્લેગ</span>
+        <span><i style="background:var(--opt)"></i>બાકી</span>
+      </div>
+      <button class="btn green" onclick="askSubmit()">✔ કસોટી સબમિટ કરો</button>
+    </div>
+  </div>
+</div>
+
+<!-- ૩. પરિણામ -->
+<div id="resultScreen" class="hide">
+  <div class="score-hero">
+    <h2 style="margin:0;color:#fff">🎉 કસોટી પરિણામ</h2>
+    <div class="ring" id="ring"><span id="resPercent"></span></div>
+    <div style="font-size:20px;font-weight:700" id="resScore"></div>
+    <div class="grade" id="resGrade"></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="kv">
+      <div><span class="muted">પરીક્ષાર્થી</span><b id="resName"></b></div>
+      <div><span class="muted">મોબાઇલ</span><b id="resPhone"></b></div>
+      <div><span class="muted">લીધેલો સમય</span><b id="resTime"></b></div>
+      <div><span class="muted">સાચા / ખોટા / બાકી</span><b id="resSplit"></b></div>
+    </div>
+    <p class="muted" style="font-size:14px">📧 વિગતવાર રંગીન મૂલ્યાંકન પત્રક (PDF) તમારા અને એડમિનના ઈમેઈલ પર મોકલી દેવાયું છે.</p>
+    <button class="btn noprint" onclick="window.print()">🖨️ પરિણામ પ્રિન્ટ / PDF સેવ કરો</button>
+
+    <h3>📊 વિભાગ મુજબ પ્રદર્શન</h3>
+    <div id="unitStats"></div>
+    <p id="weakNote" style="font-weight:600"></p>
+
+    <h3>📝 જવાબો, પ્રકરણ અને વિગતવાર સમજૂતી</h3>
+    <div class="filters">
+      <button class="on" data-f="all" onclick="setFilter('all',this)">બધા</button>
+      <button data-f="wrong" onclick="setFilter('wrong',this)">❌ ખોટા</button>
+      <button data-f="correct" onclick="setFilter('correct',this)">✅ સાચા</button>
+      <button data-f="skip" onclick="setFilter('skip',this)">⏭ બાકી</button>
+      <button data-f="flag" onclick="setFilter('flag',this)">🚩 ફ્લેગ કરેલા</button>
+    </div>
+    <div id="reviewContainer"></div>
+  </div>
+</div>
+
+</div>
+
+<!-- Submit confirm modal -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h3>કસોટી સબમિટ કરવી છે?</h3>
+    <div id="modalBody" style="line-height:1.9"></div>
+    <div class="row">
+      <button class="btn gray" onclick="closeModal()">પાછા જાઓ</button>
+      <button class="btn green" onclick="submitQuiz()">હા, સબમિટ કરો</button>
+    </div>
+    <button class="btn amber" id="gotoFlagBtn" onclick="gotoNextFlagOrBlank()">🚩 બાકી/ફ્લેગ કરેલા પ્રશ્ને જાઓ</button>
+  </div>
+</div>
+
+<script>
+// તમારી સક્રિય Apps Script Web App URL (બદલ્યા વગર જ રાખેલ છે)
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz-khogtnFjvjzRuv_ieBYJfx0TAxluM9OfoXlf72h9Yce14rdQu9_Xbmx3fnprk5Q30g/exec";
+
+/* ============================================================
+   ▼▼▼ અહીં તમારો જૂનો "const questions = [ ... ];" સંપૂર્ણ બ્લોક પેસ્ટ કરો ▼▼▼
+   (ફક્ત એટલું જ બદલવું: નીચેની ખાલી લાઇન કાઢી નાખી તમારી ૧૦૦ પ્રશ્નોની એરે મૂકવી)
+   ============================================================ */
+const questions = [];
+/* ▲▲▲ questions બ્લોક અહીં પૂરો ▲▲▲ */
+
+// ---------- સેટિંગ્સ ----------
+const TOTAL_MIN = 100;                    // કુલ સમય (મિનિટ)
+const PASS_PERCENT = 40;                  // ઉત્તીર્ણ ટકાવારી
+const SAVE_KEY = "deled_c1b_progress_v2";
+const THEME_KEY = "deled_theme";
+const FONT_KEY = "deled_font";
+
+// વિભાગો (પ્રશ્ન ક્રમ મુજબ)
+const UNITS = [
+  {name:"પ્રસ્તાવના અને અભ્યાસક્રમ", from:1,  to:10,  color:"#6366f1"},
+  {name:"જર્નલ રાઇટિંગ",            from:11, to:30,  color:"#0ea5e9"},
+  {name:"રાઇટિંગ ટાસ્ક (પ્રવૃત્તિઓ)",  from:31, to:55,  color:"#10b981"},
+  {name:"કાર્યશાળા (વર્કશોપ)",        from:56, to:85,  color:"#f59e0b"},
+  {name:"સેમિનાર, પરિશિષ્ટ અને સંદર્ભ", from:86, to:100, color:"#ec4899"}
+];
+function unitOf(i){ const n=i+1; return UNITS.find(u=>n>=u.from&&n<=u.to) || UNITS[UNITS.length-1]; }
+
+// ---------- સ્ટેટ ----------
+let studentName, studentPhone, studentEmail;
+let currentQ = 0, startMs = 0, timerInterval = null, submitted = false;
+let userAnswers = [], flags = [];
+let lastResult = null, currentFilter = "all";
+
+const $ = id => document.getElementById(id);
+const gu = n => String(n).replace(/\d/g, d => "૦૧૨૩૪૫૬૭૮૯"[d]);
+function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+const KEYS = ["અ","બ","ક","ડ"];
+
+// ---------- થીમ / ફોન્ટ ----------
+function applyTheme(t){
+  document.documentElement.setAttribute("data-theme", t);
+  $("themeBtn").textContent = t==="dark" ? "☀️ લાઇટ" : "🌙 ડાર્ક";
+  try{localStorage.setItem(THEME_KEY,t);}catch(e){}
+}
+function toggleTheme(){ applyTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark"); }
+let fsz = 16;
+function fontSize(d){ fsz=Math.min(22,Math.max(13,fsz+d*1)); document.body.style.fontSize=fsz+"px"; try{localStorage.setItem(FONT_KEY,fsz);}catch(e){} }
+(function initPrefs(){
+  let t=null; try{t=localStorage.getItem(THEME_KEY);}catch(e){}
+  if(!t) t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark":"light";
+  applyTheme(t);
+  try{ const f=parseInt(localStorage.getItem(FONT_KEY)); if(f){fsz=f;document.body.style.fontSize=f+"px";} }catch(e){}
+})();
+
+// ---------- સેવ / રીઝ્યુમ ----------
+function saveProgress(){
+  if(submitted) return;
+  try{ localStorage.setItem(SAVE_KEY, JSON.stringify({
+    name:studentName, phone:studentPhone, email:studentEmail,
+    start:startMs, cur:currentQ, ans:userAnswers, flags:flags
+  })); }catch(e){}
+}
+function loadSaved(){ try{ const s=localStorage.getItem(SAVE_KEY); return s?JSON.parse(s):null; }catch(e){return null;} }
+function discardSaved(){ try{localStorage.removeItem(SAVE_KEY);}catch(e){} $("resumeBox").style.display="none"; }
+(function checkSaved(){
+  const s=loadSaved();
+  if(s && s.start && Array.isArray(s.ans) && s.ans.length===questions.length && questions.length){
+    const left = TOTAL_MIN*60 - Math.floor((Date.now()-s.start)/1000);
+    if(left>0){
+      const done = s.ans.filter(a=>a!==null).length;
+      $("resumeInfo").textContent = `${s.name} • ${gu(done)} જવાબ આપ્યા • બાકી સમય ${gu(Math.floor(left/60))} મિનિટ`;
+      $("resumeBox").style.display="block";
+    } else discardSaved();
+  }
+})();
+function resumeQuiz(){
+  const s=loadSaved(); if(!s) return;
+  studentName=s.name; studentPhone=s.phone; studentEmail=s.email;
+  startMs=s.start; currentQ=s.cur||0; userAnswers=s.ans; flags=s.flags||new Array(questions.length).fill(false);
+  beginQuizUI();
+}
+
+// ---------- OTP (સર્વર કોલ્સ જેમના તેમ) ----------
+function requestOTP(){
+  studentName = $("name").value.trim();
+  studentPhone = $("phone").value.trim();
+  studentEmail = $("email").value.trim();
+  if(!studentName || !/^\d{10}$/.test(studentPhone) || !/^\S+@\S+\.\S+$/.test(studentEmail)){
+    alert("કૃપા કરીને પૂરું નામ, ૧૦ અંકનો સાચો મોબાઇલ નંબર અને યોગ્ય ઇમેઇલ દાખલ કરો."); return;
+  }
+  if(!questions.length){ alert("પ્રશ્નોનો ડેટા ઉમેરાયો નથી."); return; }
+  const btn=$("getOtpBtn"); btn.disabled=true; btn.innerText="OTP મોકલાઈ રહ્યો છે...";
+  fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},
+    body:JSON.stringify({action:"sendOTP",name:studentName,email:studentEmail})})
+  .then(function(){
+    alert("તમારા તેમજ એડમિનના ઇમેઇલ પર ૪ અંકનો OTP મોકલવામાં આવ્યો છે. કૃપા કરીને ઇનબોક્સ કે સ્પામ ફોલ્ડર ચકાસો.");
+    $("otpContainer").style.display="block"; btn.innerText="OTP ફરીથી મોકલો"; btn.disabled=false;
+  })
+  .catch(function(){ alert("OTP મોકલવામાં ક્ષતિ આવી. ફરી પ્રયાસ કરો."); btn.disabled=false; btn.innerText="OTP મેળવો"; });
+}
+function verifyAndStart(){
+  const otp=$("otpInput").value.trim();
+  if(otp.length!==4){ alert("કૃપા કરીને ૪ અંકનો સાચો OTP દાખલ કરો."); return; }
+  const vBtn=$("verifyBtn"); vBtn.disabled=true; vBtn.innerText="ચકાસણી ચાલુ છે...";
+  fetch(SCRIPT_URL,{method:"POST",body:JSON.stringify({action:"verifyOTP",email:studentEmail,otp:otp})})
+  .then(r=>r.json())
+  .then(data=>{
+    if(data.status==="success" && data.verified){
+      userAnswers=new Array(questions.length).fill(null);
+      flags=new Array(questions.length).fill(false);
+      currentQ=0; startMs=Date.now(); submitted=false;
+      saveProgress(); beginQuizUI();
+    } else {
+      alert("ખોટો OTP! સાચો કોડ દાખલ કરો.");
+      vBtn.disabled=false; vBtn.innerText="OTP ચકાસો અને કસોટી શરૂ કરો";
+    }
+  })
+  .catch(function(){ alert("ચકાસણીમાં ભૂલ થઈ. ફરી પ્રયાસ કરો."); vBtn.disabled=false; vBtn.innerText="OTP ચકાસો અને કસોટી શરૂ કરો"; });
+}
+
+// ---------- કસોટી UI ----------
+function beginQuizUI(){
+  $("loginScreen").classList.add("hide");
+  $("quizScreen").classList.remove("hide");
+  buildPalette(); loadQuestion(); tick();
+  clearInterval(timerInterval); timerInterval=setInterval(tick,1000);
+  window.scrollTo(0,0);
+}
+function tick(){
+  const left = TOTAL_MIN*60 - Math.floor((Date.now()-startMs)/1000);
+  if(left<=0){ $("timerDisplay").textContent="૦૦:૦૦"; if(!submitted){ alert("⏰ સમય પૂરો! કસોટી આપોઆપ સબમિટ થાય છે."); submitQuiz(true);} return; }
+  const m=String(Math.floor(left/60)).padStart(2,"0"), s=String(left%60).padStart(2,"0");
+  const el=$("timerDisplay"); el.textContent="⏱ "+gu(m+":"+s);
+  el.classList.toggle("low", left<=300);
+}
+function buildPalette(){
+  const p=$("palette"); p.innerHTML="";
+  questions.forEach((_,i)=>{
+    const b=document.createElement("button"); b.className="pb"; b.id="pb"+i; b.textContent=gu(i+1);
+    b.onclick=()=>{ currentQ=i; loadQuestion(); saveProgress(); };
+    p.appendChild(b);
+  });
+}
+function refreshPalette(){
+  let a=0,f=0;
+  questions.forEach((_,i)=>{
+    const b=$("pb"+i); if(!b) return;
+    const isA=userAnswers[i]!==null, isF=flags[i];
+    if(isA)a++; if(isF)f++;
+    b.className="pb"+(isF?" flag":(isA?" ans":""))+(i===currentQ?" cur":"");
+  });
+  const u=questions.length-a;
+  $("stA").textContent="✔ "+gu(a); $("stF").textContent="🚩 "+gu(f); $("stU").textContent="○ "+gu(u);
+  $("pfill").style.width=(a/questions.length*100)+"%";
+}
+function loadQuestion(){
+  const q=questions[currentQ];
+  $("qProgress").textContent=`પ્રશ્ન ${gu(currentQ+1)} / ${gu(questions.length)}`;
+  $("unitBadge").textContent="📖 "+q.unit;
+  $("questionText").textContent=q.q;
+  const box=$("optionsContainer"); box.innerHTML="";
+  q.options.forEach((opt,idx)=>{
+    const lab=document.createElement("label"); lab.className="option-label"+(userAnswers[currentQ]===idx?" sel":"");
+    const inp=document.createElement("input"); inp.type="radio"; inp.name="opt"; inp.value=idx; inp.checked=(userAnswers[currentQ]===idx);
+    inp.onchange=()=>selectOpt(idx);
+    const k=document.createElement("span"); k.className="optk"; k.textContent=KEYS[idx]||idx+1;
+    const t=document.createElement("span"); t.textContent=opt;
+    lab.append(inp,k,t); box.appendChild(lab);
+  });
+  $("prevBtn").style.visibility=currentQ===0?"hidden":"visible";
+  $("nextBtn").textContent=currentQ===questions.length-1?"✔ સબમિટ તરફ":"આગળ ▶";
+  const fb=$("flagBtn"); fb.classList.toggle("flag-on",!!flags[currentQ]); fb.textContent=flags[currentQ]?"🚩 ફ્લેગ હટાવો":"🚩 પછી જવાબ આપવા ફ્લેગ કરો";
+  refreshPalette();
+  const cur=$("pb"+currentQ); if(cur&&cur.scrollIntoView&&window.innerWidth>780) cur.scrollIntoView({block:"nearest"});
+}
+function selectOpt(i){ userAnswers[currentQ]=i; saveProgress(); loadQuestion(); }
+function clearAnswer(){ userAnswers[currentQ]=null; saveProgress(); loadQuestion(); }
+function toggleFlag(){ flags[currentQ]=!flags[currentQ]; saveProgress(); loadQuestion(); }
+function go(d){
+  const n=currentQ+d;
+  if(n>=questions.length){ askSubmit(); return; }
+  if(n<0) return;
+  currentQ=n; loadQuestion(); saveProgress(); window.scrollTo({top:0,behavior:"smooth"});
+}
+document.addEventListener("keydown",e=>{
+  if($("quizScreen").classList.contains("hide")||submitted) return;
+  if(e.target.tagName==="INPUT"&&e.target.type!=="radio") return;
+  if(["1","2","3","4"].includes(e.key)){ const i=+e.key-1; if(i<questions[currentQ].options.length) selectOpt(i); }
+  else if(e.key==="ArrowRight") go(1);
+  else if(e.key==="ArrowLeft") go(-1);
+  else if(e.key==="f"||e.key==="F") toggleFlag();
+});
+window.addEventListener("beforeunload",e=>{ if(!submitted && !$("quizScreen").classList.contains("hide")){ e.preventDefault(); e.returnValue=""; }});
+
+// ---------- સબમિટ ----------
+function askSubmit(){
+  const a=userAnswers.filter(x=>x!==null).length, f=flags.filter(Boolean).length, u=questions.length-a;
+  $("modalBody").innerHTML=`✅ જવાબ આપ્યા: <b>${gu(a)}</b><br>⭕ બાકી: <b style="color:var(--bad)">${gu(u)}</b><br>🚩 ફ્લેગ કરેલા: <b style="color:var(--warn)">${gu(f)}</b><br><span class="muted">સબમિટ કર્યા પછી જવાબ બદલી શકાશે નહીં.</span>`;
+  $("gotoFlagBtn").style.display=(u+f>0)?"block":"none";
+  $("modalBg").style.display="flex";
+}
+function closeModal(){ $("modalBg").style.display="none"; }
+function gotoNextFlagOrBlank(){
+  const n=questions.length;
+  for(let k=1;k<=n;k++){
+    const i=(currentQ+k)%n;
+    if(flags[i]||userAnswers[i]===null){ currentQ=i; break; }
+  }
+  closeModal(); loadQuestion(); saveProgress(); window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function statusOf(i){
+  if(userAnswers[i]===null) return "skip";
+  return userAnswers[i]===questions[i].ans ? "correct":"wrong";
+}
+
+function submitQuiz(auto){
+  if(submitted) return;
+  submitted=true; closeModal(); clearInterval(timerInterval);
+  try{localStorage.removeItem(SAVE_KEY);}catch(e){}
+  let elapsed=Math.floor((Date.now()-startMs)/1000); elapsed=Math.min(elapsed,TOTAL_MIN*60);
+  const formattedTime=`${Math.floor(elapsed/60)} મિનિટ ${elapsed%60} સેકન્ડ`;
+
+  let score=0,wrong=0,skip=0;
+  questions.forEach((q,i)=>{ const s=statusOf(i); if(s==="correct")score++; else if(s==="wrong")wrong++; else skip++; });
+  const percent=((score/questions.length)*100).toFixed(2);
+  const pnum=parseFloat(percent);
+  const unitStats=UNITS.map(u=>{ let t=0,c=0; questions.forEach((q,i)=>{ if(unitOf(i)===u){t++; if(statusOf(i)==="correct")c++;}}); return {u,t,c,p:t?Math.round(c/t*100):0}; });
+  const grade = pnum>=85?"🏆 ઉત્કૃષ્ટ (A+)": pnum>=70?"🥇 ખૂબ સરસ (A)": pnum>=55?"🥈 સારું (B)": pnum>=PASS_PERCENT?"🥉 ઉત્તીર્ણ (C)":"📚 વધુ મહેનતની જરૂર";
+  const gradePlain = grade.replace(/^\S+\s/,"");
+  const passed = pnum>=PASS_PERCENT;
+
+  lastResult={score,wrong,skip,percent,pnum,formattedTime,unitStats,grade,gradePlain,passed};
+
+  $("quizScreen").classList.add("hide"); $("resultScreen").classList.remove("hide");
+  $("resName").textContent=studentName; $("resPhone").textContent=studentPhone; $("resTime").textContent=formattedTime;
+  $("resScore").textContent=`${gu(score)} / ${gu(questions.length)}`;
+  $("resPercent").textContent=gu(Math.round(pnum))+"%";
+  $("ring").style.setProperty("--p",pnum+"%");
+  $("resGrade").textContent=grade;
+  $("resSplit").textContent=`${gu(score)} / ${gu(wrong)} / ${gu(skip)}`;
+
+  const us=$("unitStats"); us.innerHTML="";
+  unitStats.forEach(s=>{
+    const d=document.createElement("div"); d.className="ubar";
+    d.innerHTML=`<div class="t"><span>${esc(s.u.name)}</span><span>${gu(s.c)}/${gu(s.t)} (${gu(s.p)}%)</span></div><div class="b"><div style="width:${s.p}%;background:${s.u.color}"></div></div>`;
+    us.appendChild(d);
+  });
+  const weak=[...unitStats].sort((a,b)=>a.p-b.p)[0], strong=[...unitStats].sort((a,b)=>b.p-a.p)[0];
+  $("weakNote").innerHTML=`💪 સબળ વિભાગ: <span style="color:var(--ok)">${esc(strong.u.name)}</span> &nbsp;|&nbsp; 📌 વધુ તૈયારી: <span style="color:var(--bad)">${esc(weak.u.name)}</span>`;
+
+  renderReview(); window.scrollTo(0,0);
+
+  // ઇમેઇલ/સર્વર: જૂના જ ફીલ્ડ્સ + વધારાના રંગીન HTML/PDF ફીલ્ડ્સ
+  fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},
+    body:JSON.stringify({
+      action:"submitResult",
+      dateTime:new Date().toLocaleString('gu-IN',{timeZone:'Asia/Kolkata'}),
+      name:studentName, phone:studentPhone, email:studentEmail,
+      timeTaken:formattedTime,
+      score:`${score} / ${questions.length}`,
+      percentage:`${percent}%`,
+      subject:"D.El.Ed. દ્વિતીય વર્ષ - કોર્સ 1 (બ) : સ્વની સમજ અને શૈક્ષણિક દૃષ્ટિબિંદુનો વિકાસ (૧૦૦ પ્રશ્નો)",
+      detailedReviewHtml: buildEmailBody(),
+      pdfHtml: buildPdfDoc()
+    })});
+}
+
+// ---------- પરિણામ સમીક્ષા ----------
+function renderReview(){
+  const box=$("reviewContainer"); box.innerHTML="";
+  let shown=0;
+  questions.forEach((q,i)=>{
+    const st=statusOf(i);
+    if(currentFilter==="wrong"&&st!=="wrong")return;
+    if(currentFilter==="correct"&&st!=="correct")return;
+    if(currentFilter==="skip"&&st!=="skip")return;
+    if(currentFilter==="flag"&&!flags[i])return;
+    shown++;
+    const ut=userAnswers[i]!==null?q.options[userAnswers[i]]:"જવાબ આપ્યો નથી";
+    const item=document.createElement("div");
+    item.className="review-item "+(st==="correct"?"is-correct":st==="wrong"?"is-wrong":"is-skip");
+    const icon=st==="correct"?"✅":st==="wrong"?"❌":"⏭";
+    item.innerHTML=`
+      <p class="qq">${esc(q.q)} ${flags[i]?"🚩":""}</p>
+      <p style="margin:4px 0"><b>તમારો ઉત્તર:</b> ${esc(ut)} ${icon}</p>
+      ${st!=="correct"?`<p style="margin:4px 0;color:var(--ok)"><b>સાચો ઉત્તર:</b> ${esc(q.options[q.ans])}</p>`:""}
+      <div class="exp-box"><div style="color:var(--primary);font-weight:600">📖 ${esc(q.unit)}</div><b>સમજૂતી:</b> ${esc(q.exp)}</div>`;
+    box.appendChild(item);
+  });
+  if(!shown) box.innerHTML='<p class="muted" style="text-align:center">આ ફિલ્ટરમાં કોઈ પ્રશ્ન નથી 🎯</p>';
+}
+function setFilter(f,btn){
+  currentFilter=f;
+  document.querySelectorAll(".filters button").forEach(b=>b.classList.toggle("on",b===btn));
+  renderReview();
+}
+
+// ---------- ઇમેઇલ HTML (ટેબલ આધારિત, PDF-ફ્રેન્ડલી) ----------
+function reviewBlocks(){
+  let h="";
+  questions.forEach((q,i)=>{
+    const st=statusOf(i);
+    const bg=st==="correct"?"#ecfdf3":st==="wrong"?"#fef2f2":"#fffbeb";
+    const bd=st==="correct"?"#16a34a":st==="wrong"?"#dc2626":"#f59e0b";
+    const icon=st==="correct"?"✅":st==="wrong"?"❌":"⏭";
+    const ut=userAnswers[i]!==null?q.options[userAnswers[i]]:"જવાબ આપ્યો નથી";
+    h+=`<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;border:1px solid ${bd};border-left:6px solid ${bd};border-radius:8px;background:${bg};page-break-inside:avoid"><tr><td style="padding:10px 12px;font-family:Arial,sans-serif;font-size:13px;color:#1f2937">
+      <div style="font-weight:bold;margin-bottom:6px;white-space:pre-line">${esc(q.q)} ${flags[i]?"🚩":""}</div>
+      <div style="color:${st==="correct"?"#166534":"#b91c1c"};margin:3px 0"><b>આપેલો ઉત્તર:</b> ${esc(ut)} ${icon}</div>
+      ${st!=="correct"?`<div style="color:#166534;margin:3px 0"><b>સાચો ઉત્તર:</b> ${esc(q.options[q.ans])}</div>`:""}
+      <div style="background:#ffffff;border:1px solid #e2e8f0;padding:7px;margin-top:6px;font-size:12px;border-radius:4px"><div style="color:#4f46e5;font-weight:bold">📖 ${esc(q.unit)}</div><b>સમજૂતી:</b> ${esc(q.exp)}</div>
+    </td></tr></table>`;
+  });
+  return h;
+}
+function summaryBlock(){
+  const r=lastResult;
+  const bars=r.unitStats.map(s=>`<tr><td style="padding:5px 0;font-size:13px;font-family:Arial,sans-serif;color:#1f2937" width="45%">${esc(s.u.name)}</td>
+    <td width="40%"><table width="100%" cellpadding="0" cellspacing="0" style="background:#e5e7eb;border-radius:6px"><tr><td width="${Math.max(s.p,1)}%" style="background:${s.u.color};height:12px;border-radius:6px;font-size:1px">&nbsp;</td><td style="font-size:1px">&nbsp;</td></tr></table></td>
+    <td style="font-size:12px;font-family:Arial,sans-serif;color:#1f2937;text-align:right" width="15%"><b>${s.c}/${s.t}</b></td></tr>`).join("");
+  return `
+  <table width="100%" cellpadding="0" cellspacing="0" style="margin:14px 0"><tr>
+    <td width="33%" style="padding:4px"><div style="background:#16a34a;color:#fff;text-align:center;padding:12px;border-radius:10px;font-family:Arial,sans-serif"><div style="font-size:24px;font-weight:bold">${r.score}</div><div style="font-size:12px">સાચા</div></div></td>
+    <td width="33%" style="padding:4px"><div style="background:#dc2626;color:#fff;text-align:center;padding:12px;border-radius:10px;font-family:Arial,sans-serif"><div style="font-size:24px;font-weight:bold">${r.wrong}</div><div style="font-size:12px">ખોટા</div></div></td>
+    <td width="33%" style="padding:4px"><div style="background:#f59e0b;color:#fff;text-align:center;padding:12px;border-radius:10px;font-family:Arial,sans-serif"><div style="font-size:24px;font-weight:bold">${r.skip}</div><div style="font-size:12px">બાકી</div></div></td>
+  </tr></table>
+  <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:bold;color:#4f46e5;margin:14px 0 6px">📊 વિભાગ મુજબ પ્રદર્શન</div>
+  <table width="100%" cellpadding="0" cellspacing="0">${bars}</table>`;
+}
+function headerBlock(){
+  const r=lastResult;
+  return `
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#4f46e5;background-image:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:12px"><tr><td style="padding:20px;text-align:center;font-family:Arial,sans-serif;color:#ffffff">
+    <div style="font-size:12px;letter-spacing:1px;opacity:.9">D.El.Ed. દ્વિતીય વર્ષ • કોર્સ 1 (બ)</div>
+    <div style="font-size:18px;font-weight:bold;margin:6px 0">સ્વની સમજ અને શૈક્ષણિક દૃષ્ટિબિંદુનો વિકાસ</div>
+    <div style="font-size:34px;font-weight:bold;margin-top:8px">${r.score} / ${questions.length}</div>
+    <div style="font-size:18px">${r.percent}% &nbsp;•&nbsp; ${esc(r.gradePlain)}</div>
+    <div style="margin-top:8px;font-size:13px;background:${r.passed?"#16a34a":"#dc2626"};display:inline-block;padding:4px 16px;border-radius:14px">${r.passed?"✔ ઉત્તીર્ણ":"✘ વધુ તૈયારી જરૂરી"}</div>
+  </td></tr></table>
+  <table width="100%" cellpadding="6" cellspacing="0" style="margin-top:12px;font-family:Arial,sans-serif;font-size:13px;color:#1f2937;background:#f1f5f9;border-radius:8px">
+    <tr><td><b>👤 નામ:</b> ${esc(studentName)}</td><td><b>📱 મોબાઇલ:</b> ${esc(studentPhone)}</td></tr>
+    <tr><td><b>✉️ ઇમેઇલ:</b> ${esc(studentEmail)}</td><td><b>⏱ સમય:</b> ${esc(r.formattedTime)}</td></tr>
+  </table>`;
+}
+function buildEmailBody(){
+  return `<div style="max-width:720px;margin:auto">${headerBlock()}${summaryBlock()}
+  <div style="font-family:Arial,sans-serif;font-size:15px;font-weight:bold;color:#4f46e5;margin:18px 0 8px">📝 જવાબો અને સમજૂતી</div>${reviewBlocks()}
+  <div style="text-align:center;font-family:Arial,sans-serif;font-size:11px;color:#94a3b8;margin-top:12px">શુભેચ્છાઓ! 🌟 સતત અભ્યાસ જ સફળતાની ચાવી છે.</div></div>`;
+}
+function buildPdfDoc(){
+  return `<!DOCTYPE html><html lang="gu"><head><meta charset="UTF-8"><style>body{font-family:'Noto Sans Gujarati',Arial,sans-serif;margin:18px}</style></head><body>${buildEmailBody()}</body></html>`;
+}
+</script>
+</body>
+</html>
